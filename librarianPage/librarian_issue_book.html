@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mintric — Add Book</title>
-  <link rel="stylesheet" href="librarianStyles.css">
+  <title>Mintric — Issue Book</title>
+  <link rel="stylesheet" href="librarian_styles.css">
 </head>
 <body>
   <div class="page">
@@ -20,8 +20,8 @@
       </div>
 
       <nav class="actions" aria-label="Primary actions">
-        <a class="action" href="librarianPage/librarianIssueBook.html" data-page="librarianIssueBook.html">Issue Books</a>
-        <a class="action" href="librarianPage/librarianAddBook.html" data-page="librarianAddBook.html">Add Books</a>
+        <a class="action" href="librarianPage/librarian_issue_book.html" data-page="librarian_issue_book.html">Issue Books</a>
+        <a class="action" href="librarianPage/librarian_add_book.html" data-page="librarian_add_book.html">Add Books</a>
         <a class="action" href="#">Return Book</a>
         <a class="action" href="#">Browse</a>
       </nav>
@@ -34,14 +34,17 @@
     </aside>
 
     <main class="content" role="main">
-      <div class="panels active" id="addArea" aria-hidden="false">
-        <section class="panel add" id="addPanel" aria-labelledby="addTitle">
-          <h2 id="addTitle">Add Book</h2>
+      <!-- no logo here (per request) -->
 
-          <label class="vis" for="addBookId">Book ID</label>
-          <input id="addBookId" name="addBookId" type="text" placeholder="Book ID" />
+      <!-- panels shown immediately on this page -->
+      <div class="panels active" id="issueArea" aria-hidden="false">
+        <section class="panel issue" id="issuePanel" aria-labelledby="issueTitle">
+          <h2 id="issueTitle">Issue Book</h2>
 
-          <div class="book-details" id="addBookDetails">
+          <label class="vis" for="bookId">Book ID</label>
+          <input id="bookId" name="bookId" type="text" placeholder="Book ID" />
+
+          <div class="book-details" id="bookDetails">
             <div class="bt">Book Title Sample</div>
             <div class="ba">by <strong>Author Name</strong></div>
             <div class="meta"><span>Genre: <strong>Sci‑Fi</strong></span></div>
@@ -50,28 +53,27 @@
             <div class="meta"><span>Number of Pages: <strong>180</strong></span></div>
           </div>
 
-          <label class="vis" for="quantity">Quantity</label>
-          <input id="quantity" name="quantity" type="number" min="1" placeholder="Quantity" />
+          <label class="vis" for="userId">User ID</label>
+          <input id="userId" name="userId" type="text" placeholder="User ID" />
 
-          <label class="vis" for="shelf">Shelf Location</label>
-          <input id="shelf" name="shelf" type="text" placeholder="Shelf Location" />
+          <div class="borrower">
+            <div class="borrower-name">Terry Davis</div>
+            <div class="due-date">Due Date : 03 / 03 / 2026</div>
+          </div>
 
-          <label class="vis" for="cover">Add Cover Image</label>
-          <button id="addCover" class="ghost" type="button">＋ Add Cover Image</button>
-
-          <button id="confirmAdd" class="confirm green" type="button">Add</button>
+          <button id="confirmIssue" class="confirm" type="button">Confirm</button>
         </section>
 
-        <section class="panel added" id="addedPanel" aria-labelledby="addedTitle">
-          <h2 id="addedTitle">Added Books</h2>
+        <section class="panel borrowed" id="borrowedPanel" aria-labelledby="borrowedTitle">
+          <h2 id="borrowedTitle">Borrowed Books</h2>
 
-          <div class="borrowed-list" id="addedList">
+          <div class="borrowed-list" id="borrowedList">
             <div class="borrowed-item" data-id="sample-1">
               <div class="borrowed-text">
                 <div class="btitle">Book Title Sample</div>
-                <div class="bmeta">by <strong>Author Name</strong></div>
+                <div class="bmeta">Borrowed by : Terry Davis</div>
               </div>
-              <button class="returnBtn" title="Remove" aria-label="Remove book">⤺</button>
+              <button class="returnBtn" title="Return" aria-label="Return book">⤺</button>
             </div>
           </div>
         </section>
@@ -79,6 +81,6 @@
     </main>
   </div>
 
-  <script src="librarianScripts.js"></script>
+  <script src="librarian_scripts.js"></script>
 </body>
 </html>
