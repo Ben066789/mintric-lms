@@ -116,7 +116,13 @@ body{
 
 /* main content center branding */
 .content{
-  flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:40px;
+  flex:1;
+  display:flex;
+  align-items:flex-start;      /* panels start near top like mock */
+  justify-content:center;
+  gap:24px;
+  padding:40px 48px;
+  position:relative;
 }
 .brand{display:flex;flex-direction:column;align-items:flex-start;gap:8px;transform:translateX(0)}
 .brand-logo{
@@ -147,6 +153,153 @@ body{
   .sidebar{width:100%;border-radius:10px;margin:12px}
   .brand-logo{width:320px;height:86px}
 }
+
+/* content area: center panels, give comfortable padding */
+.content{
+  flex:1;
+  display:flex;
+  align-items:flex-start;      /* panels start near top like mock */
+  justify-content:center;
+  gap:24px;
+  padding:40px 48px;
+  position:relative;
+}
+
+/* brand can be hidden when navigating to the issue page */
+.brand.hidden{display:none}
+
+/* panels container (hidden by default, shows when .active) */
+.panels{
+  display:none;
+  width:100%;
+  max-width:1100px;
+  gap:24px;
+  align-items:stretch;
+  justify-content:space-between;
+}
+
+/* two-column panel layout when active */
+.panels.active{
+  display:flex;
+}
+
+/* generic panel */
+.panel{
+  background: linear-gradient(180deg, rgba(255,255,255,0.985), rgba(255,255,255,0.94));
+  border-radius:14px;
+  padding:22px;
+  box-shadow: 0 8px 28px rgba(10,10,10,0.06);
+  overflow:auto;                  /* allow scrolling inside panel */
+  -webkit-overflow-scrolling: touch;
+  min-height:520px;
+}
+
+/* left issue panel */
+.panel.issue{
+  flex: 1 1 56%;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  padding:26px;
+}
+
+/* right borrowed panel */
+.panel.borrowed{
+  flex: 1 1 40%;
+  padding:22px;
+}
+
+/* headings */
+.panel h2{
+  margin:0 0 12px 0;
+  font-size:30px;
+  font-weight:800;
+  letter-spacing: -0.2px;
+}
+
+/* inputs */
+.panel input[type="text"]{
+  height:48px;
+  border-radius:12px;
+  border:0;
+  padding:12px 16px;
+  background: rgba(0,0,0,0.05);
+  font-size:15px;
+  outline:none;
+}
+
+/* book details block */
+.book-details{margin-top:6px;color:#111}
+.book-details .bt{font-size:20px;font-weight:800;margin-bottom:6px}
+.book-details .ba{margin-bottom:8px;color:#222}
+.book-details .meta{margin:6px 0;color:#333}
+
+/* borrower info */
+.borrower{margin-top:8px;}
+.borrower-name{font-size:18px;font-weight:800}
+.due-date{color:#333;margin-top:6px}
+
+/* confirm button (green) - pill style */
+.confirm{
+  margin-top:auto;
+  align-self:flex-start;
+  padding:10px 18px;
+  min-width:120px;
+  height:auto;
+  border-radius:22px;
+  border:0;
+  background:#0b9a49;
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow: 0 8px 18px rgba(11,154,73,0.16);
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+.confirm:active{transform:translateY(1px)}
+.confirm[disabled]{opacity:.6;cursor:default}
+
+/* borrowed list items */
+.borrowed-list{display:flex;flex-direction:column;gap:12px}
+.borrowed-item{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px;
+  border-radius:10px;
+  background: rgba(0,0,0,0.04);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.borrowed-item:hover{ transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.04);}
+
+.borrowed-item .btitle{font-weight:800}
+.borrowed-item .bmeta{font-size:13px;color:#333;margin-top:4px}
+
+/* return button: circular icon with subtle background */
+.returnBtn{
+  border:0;
+  background: rgba(0,0,0,0.06);
+  font-size:16px;
+  cursor:pointer;
+  padding:8px;
+  border-radius:10px;
+  width:36px;
+  height:36px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  transition: background .12s ease, transform .12s ease;
+}
+.returnBtn:hover{ background: rgba(0,0,0,0.09); transform: translateY(-1px) }
+
+/* responsive tweaks */
+@media (max-width:900px){
+  .content{padding:20px}
+  .panels{flex-direction:column; gap:16px; max-width:740px}
+  .panel.issue,.panel.borrowed{flex:unset; min-height:380px}
+}
+
+/* visual helper for accessible labels */
+.vis{position:absolute;left:-9999px}
 
 /* accessible helper */
 .sr-only{
