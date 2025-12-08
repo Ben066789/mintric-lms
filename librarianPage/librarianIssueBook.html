@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mintric — Issue Book</title>
+  <link rel="stylesheet" href="librarianStyles.css">
+</head>
+<body>
+  <div class="page">
+    <aside class="sidebar" role="navigation" aria-label="Librarian menu">
+      <div class="profile">
+        <div class="avatar-wrap">
+          <img src="../assets/avatar.png" alt="Librarian avatar" class="avatar">
+        </div>
+        <div class="meta">
+          <div class="name">Walter White</div>
+          <div class="role">Librarian</div>
+        </div>
+      </div>
+
+      <nav class="actions" aria-label="Primary actions">
+        <a class="action" href="#">Issue Books</a>
+        <a class="action" href="#">Add Books</a>
+        <a class="action" href="#">Return Book</a>
+        <a class="action" href="#">Browse</a>
+      </nav>
+
+      <div class="sidebar-foot">
+        <button type="button" class="logout" title="Sign out" aria-label="Sign out">
+          <span class="sr-only">Sign out</span>
+        </button>
+      </div>
+    </aside>
+
+    <main class="content" role="main">
+      <!-- no logo here (per request) -->
+
+      <!-- panels shown immediately on this page -->
+      <div class="panels active" id="issueArea" aria-hidden="false">
+        <section class="panel issue" id="issuePanel" aria-labelledby="issueTitle">
+          <h2 id="issueTitle">Issue Book</h2>
+
+          <label class="vis" for="bookId">Book ID</label>
+          <input id="bookId" name="bookId" type="text" placeholder="Book ID" />
+
+          <div class="book-details" id="bookDetails">
+            <div class="bt">Book Title Sample</div>
+            <div class="ba">by <strong>Author Name</strong></div>
+            <div class="meta"><span>Genre: <strong>Sci‑Fi</strong></span></div>
+            <div class="meta"><span>Language: <strong>English</strong></span></div>
+            <div class="meta"><span>Year: <strong>1216</strong></span></div>
+            <div class="meta"><span>Number of Pages: <strong>180</strong></span></div>
+          </div>
+
+          <label class="vis" for="userId">User ID</label>
+          <input id="userId" name="userId" type="text" placeholder="User ID" />
+
+          <div class="borrower">
+            <div class="borrower-name">Terry Davis</div>
+            <div class="due-date">Due Date : 03 / 03 / 2026</div>
+          </div>
+
+          <button id="confirmIssue" class="confirm" type="button">Confirm</button>
+        </section>
+
+        <section class="panel borrowed" id="borrowedPanel" aria-labelledby="borrowedTitle">
+          <h2 id="borrowedTitle">Borrowed Books</h2>
+
+          <div class="borrowed-list" id="borrowedList">
+            <div class="borrowed-item" data-id="sample-1">
+              <div class="borrowed-text">
+                <div class="btitle">Book Title Sample</div>
+                <div class="bmeta">Borrowed by : Terry Davis</div>
+              </div>
+              <button class="returnBtn" title="Return" aria-label="Return book">⤺</button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>

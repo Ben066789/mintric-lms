@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mintric — Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="frame">
+    <main class="hero">
+      <section class="left">
+        <h1 class="logo">Mintric</h1>
+        <nav class="sub">
+          <a href="#" id="searchLink">Search</a>
+          <span class="sep">|</span>
+          <a href="#" id="loginToggle">Login</a>
+        </nav>
+
+        <!-- login form (hidden until toggled) -->
+        <form class="login-card" id="loginCard" action="#" onsubmit="event.preventDefault();">
+          <input id="loginUser" name="user" type="text" placeholder="User" autocomplete="username" />
+          <input id="loginPass" name="password" type="password" placeholder="Password" autocomplete="current-password" />
+          <button class="login-submit" type="submit">Log in</button>
+        </form>
+      </section>
+
+      <section class="right" aria-hidden="true"></section>
+    </main>
+  </div>
+<script src="scripts.js"></script>
+</body>
+</html>
