@@ -45,5 +45,30 @@ document.addEventListener('DOMContentLoaded', function(){
     confirm.textContent = 'Confirmed';
     setTimeout(()=> confirm.textContent = 'Confirm', 900);
   });
+
+  const actions = document.querySelectorAll('.sidebar .actions .action[data-page]');
+  if (!actions || actions.length === 0) return;
+
+  const currentFile = (location.pathname.split('/').pop() || 'librarian.html').toLowerCase();
+
+  actions.forEach(a => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = (a.dataset.page || '').toLowerCase();
+      if (!target) return;
+
+      // if clicking the link that points to the page we're already on -> go back to main librarian page
+      if (currentFile === target) {
+        // if already at main page, navigate to target; otherwise toggle back to librarian.html
+        if (currentFile === 'librarian.html') {
+          window.location.href = target;
+        } else {
+          window.location.href = 'librarian.html';
+        }
+      } else {
+        window.location.href = target;
+      }
+    });
+  });
 });
 
