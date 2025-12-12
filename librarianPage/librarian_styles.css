@@ -230,6 +230,10 @@ body{
 
 /* book details block */
 .book-details{margin-top:6px;color:#111}
+.book-details .book-hero{display:flex;gap:12px;align-items:flex-start}
+.book-details .cover{width:86px;height:118px;object-fit:cover;border-radius:10px;background:rgba(0,0,0,0.05);box-shadow:0 6px 12px rgba(0,0,0,0.08)}
+.book-details .cover-placeholder{width:86px;height:118px;border-radius:10px;background:rgba(0,0,0,0.05);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#555;text-align:center}
+.book-details .book-copy{display:flex;flex-direction:column}
 .book-details .bt{font-size:20px;font-weight:800;margin-bottom:6px}
 .book-details .ba{margin-bottom:8px;color:#222}
 .book-details .meta{margin:6px 0;color:#333}
@@ -273,6 +277,12 @@ body{
 
 .borrowed-item .btitle{font-weight:800}
 .borrowed-item .bmeta{font-size:13px;color:#333;margin-top:4px}
+.borrowed-item .bmeta.small{font-size:12px;color:#444}
+.borrowed-text{display:flex;gap:12px;align-items:flex-start}
+.borrowed-item .thumb{width:54px;height:72px;border-radius:10px;overflow:hidden;background:rgba(0,0,0,0.05);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.borrowed-item .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.borrowed-item .thumb-empty{color:#555;font-size:12px;font-weight:700;text-align:center}
+.borrowed-item .btext{display:flex;flex-direction:column;gap:4px}
 
 /* return button: circular icon with subtle background */
 .returnBtn{
